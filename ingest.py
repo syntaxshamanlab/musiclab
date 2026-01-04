@@ -62,6 +62,7 @@ def normalize(obj):
     return obj
 
 def main():
+    os.makedirs(RAW_DIR, exist_ok=True)
     os.makedirs(CONVERTED_DIR, exist_ok=True)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE VAULT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background-color: #111; color: #eee; }
+        /* Custom scrollbar for lyrics */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+    </style>
+</head>
+<body class="bg-black min-h-screen font-mono selection:bg-green-500 selection:text-black">
+
+    <!-- APP CONTAINER -->
+    <div id="app" class="max-w-7xl mx-auto p-6">
+        
+        <!-- HEADER -->
+        <header class="flex justify-between items-center mb-10 border-b border-gray-800 pb-6">
+            <div>
+                <h1 class="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">THE VAULT</h1>
+                <p class="text-gray-500 text-sm mt-1">SONIC ARCHIVE // V.2.0</p>
+            </div>
+            <button id="back-btn" onclick="renderHub()" class="hidden px-4 py-2 text-sm font-bold text-green-400 border border-green-900 rounded hover:bg-green-900/20 transition-colors">
+                ← RETURN TO HUB
+            </button>
+        </header>
+
+        <!-- HUB VIEW (GRID) -->
+        <div id="hub-view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards injected via JS -->
+        </div>
+
+        <!-- LAB VIEW (DETAIL) -->
+        <div id="lab-view" class="hidden animate-fade-in">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- LEFT COLUMN: METRICS -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div id="song-meta"></div>
+                    
+                    <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest">Flow Topology</h3>
+                        <canvas id="flowChart" height="200"></canvas>
+                    </div>
+
+                    <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest">Sonic Mix</h3>
+                        <div class="h-64 flex justify-center">
+                            <canvas id="mixChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: LYRICS & VISUALS -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-lg h-[600px] flex flex-col">
+                        <h3 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest">Lyrical Data</h3>
+                        <div id="lyrics-container" class="flex-1 overflow-y-auto space-y-6 pr-2">
+                            <!-- Lyrics injected via JS -->
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest">Visual Cues</h3>
+                        <div id="visuals-container" class="space-y-3">
+                            <!-- Visuals injected via JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // --- DATA ---
+        const songs = [
+            {
+                id: "neon-nights",
+                title: "Neon Nights",
+                bpm: 92,
+                profile: "Processed Reality / Street-Born Fate",
+                tags: ["synthwave", "cyberpunk"],
+                metrics: {
+                    density: [50, 50, 50, 50, 50, 50, 50, 50],
+                    intensity: [50, 50, 50, 50, 50, 50, 50, 50]
+                },
+                mix: {
+                    drums: 80,
+                    bass: 80,
+                    vocals: 100,
+                    fx: 50
+                },
+                lyrics: [
+                    { section: "Verse 1", text: "Walking down the street / Lights are flashing", note: "" },
+                    { section: "Chorus", text: "Neon nights, hold me tight", "note": "Extracted via Ingest Pipeline" }
+                ],
+                visuals: [
+                    { time: "0:00", event: "Initialization", desc: "Default visual protocol engaged." }
+                ]
+            }
+        ];
+
+        // --- STATE & REFS ---
+        let flowChart = null;
+        let mixChart = null;
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHub();
+        });
+
+        // --- RENDERERS ---
+        function renderHub() {
+            document.getElementById('hub-view').classList.remove('hidden');
+            document.getElementById('lab-view').classList.add('hidden');
+            document.getElementById('back-btn').classList.add('hidden');
+
+            const hub = document.getElementById('hub-view');
+            hub.innerHTML = songs.map(song => `
+                <div onclick="renderSongLab('${song.id}')" class="group bg-gray-900 border border-gray-800 p-6 rounded-lg cursor-pointer hover:border-green-500/50 transition-all hover:shadow-[0_0_20px_rgba(74,222,128,0.1)]">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-bold text-white group-hover:text-green-400 transition-colors">${song.title}</h2>
+                        <span class="text-xs font-mono text-gray-500 border border-gray-800 px-2 py-1 rounded">${song.bpm} BPM</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 font-light">${song.profile}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${song.tags.map(t => `<span class="text-xs text-gray-500 bg-gray-800 px-2 py-1 rounded">#${t}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderSongLab(id) {
+            const song = songs.find(s => s.id === id);
+            if (!song) return;
+
+            document.getElementById('hub-view').classList.add('hidden');
+            document.getElementById('lab-view').classList.remove('hidden');
+            document.getElementById('back-btn').classList.remove('hidden');
+
+            // Meta
+            document.getElementById('song-meta').innerHTML = `
+                <h2 class="text-5xl font-bold text-white mb-2">${song.title}</h2>
+                <div class="flex items-center gap-4 text-gray-400 font-mono text-sm">
+                    <span class="text-green-400">ID: ${song.id}</span>
+                    <span>|</span>
+                    <span>${song.bpm} BPM</span>
+                    <span>|</span>
+                    <span>${song.profile}</span>
+                </div>
+            `;
+
+            // Lyrics
+            document.getElementById('lyrics-container').innerHTML = song.lyrics.map(l => `
+                <div class="border-l-2 border-gray-700 pl-4 py-1 hover:border-green-500 transition-colors">
+                    <span class="text-xs font-bold text-green-500 uppercase tracking-wider block mb-1">${l.section}</span>
+                    <p class="text-gray-300 leading-relaxed">${l.text}</p>
+                    ${l.note ? `<p class="text-xs text-gray-600 mt-1 font-mono">// ${l.note}</p>` : ''}
+                </div>
+            `).join('');
+
+            // Visuals
+            document.getElementById('visuals-container').innerHTML = song.visuals.map(v => `
+                <div class="flex gap-4 text-sm font-mono border-b border-gray-800 pb-2 last:border-0">
+                    <span class="text-green-400 w-12 shrink-0">${v.time}</span>
+                    <div>
+                        <span class="font-bold text-gray-300 block">${v.event}</span>
+                        <span class="text-gray-500 text-xs">${v.desc}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            initCharts(song);
+        }
+
+        function initCharts(song) {
+            if (flowChart) flowChart.destroy();
+            if (mixChart) mixChart.destroy();
+
+            // Flow Chart (Line)
+            const ctxFlow = document.getElementById('flowChart').getContext('2d');
+            flowChart = new Chart(ctxFlow, {
+                type: 'line',
+                data: {
+                    labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
+                    datasets: [
+                        {
+                            label: 'Density',
+                            data: song.metrics.density,
+                            borderColor: '#4ade80', // green-400
+                            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        },
+                        {
+                            label: 'Intensity',
+                            data: song.metrics.intensity,
+                            borderColor: '#60a5fa', // blue-400
+                            backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                            tension: 0.4,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { labels: { color: '#9ca3af' } } },
+                    scales: {
+                        y: { beginAtZero: true, max: 100, grid: { color: '#374151' }, ticks: { color: '#9ca3af' } },
+                        x: { grid: { color: '#374151' }, ticks: { color: '#9ca3af' } }
+                    }
+                }
+            });
+
+            // Mix Chart (Radar)
+            const ctxMix = document.getElementById('mixChart').getContext('2d');
+            mixChart = new Chart(ctxMix, {
+                type: 'radar',
+                data: {
+                    labels: ['Drums', 'Bass', 'Vocals', 'FX'],
+                    datasets: [{
+                        label: 'Mix Balance',
+                        data: [song.mix.drums, song.mix.bass, song.mix.vocals, song.mix.fx],
+                        borderColor: '#a78bfa', // purple-400
+                        backgroundColor: 'rgba(167, 139, 250, 0.2)',
+                        pointBackgroundColor: '#a78bfa',
+                        pointBorderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#374151' },
+                            grid: { color: '#374151' },
+                            pointLabels: { color: '#e5e7eb', font: { size: 12 } },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
