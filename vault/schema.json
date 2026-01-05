@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Slugified unique identifier"
+    },
+    "title": {
+      "type": "string",
+      "description": "Song or lyric title"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Hashtag categories"
+    },
+    "lyrics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "section": {
+            "type": "string",
+            "description": "Section name (verse, chorus, bridge, etc.)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Lyric content"
+          },
+          "note": {
+            "type": "string",
+            "description": "Additional notes or metadata"
+          }
+        },
+        "required": ["section", "text"]
+      }
+    },
+    "bpm": {
+      "type": "number",
+      "description": "Beats per minute"
+    },
+    "profile": {
+      "type": "string",
+      "description": "Music profile/genre"
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "density": { "type": "array", "items": { "type": "number" } },
+        "intensity": { "type": "array", "items": { "type": "number" } }
+      }
+    },
+    "mix": {
+      "type": "object",
+      "properties": {
+        "drums": { "type": "number" },
+        "bass": { "type": "number" },
+        "vocals": { "type": "number" },
+        "fx": { "type": "number" }
+      }
+    },
+    "visuals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": { "type": "string" },
+          "event": { "type": "string" },
+          "desc": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": ["id", "title", "tags", "lyrics"]
+}

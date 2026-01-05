@@ -53,7 +53,9 @@ def extract_fields(md_text):
     return {"title": title, "tags": tags, "lyrics": lyrics}
 
 def normalize(obj):
-    obj["id"] = slugify(obj["title"])
+    slug = slugify(obj["title"])
+    # Truncate slug to 200 chars to avoid filename issues
+    obj["id"] = slug[:200] if len(slug) > 200 else slug
     obj["bpm"] = CONFIG["defaults"]["bpm"]
     obj["profile"] = CONFIG["defaults"]["profile"]
     obj["metrics"] = CONFIG["defaults"]["metrics"]

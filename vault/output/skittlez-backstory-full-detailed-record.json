@@ -1,0 +1,48 @@
+{
+    "title": "Skittlez Backstory \u2014 Full, Detailed Record",
+    "tags": [
+        "\\[Scene 2: Below the Dog on the Hierarchy Board\\]",
+        "\\[Scene 3: When Her Man Was About to Get Out\\]",
+        "\\[Scene 4: Through the Fire\\]",
+        "\\[Epilogue: The Truth Beneath It All\\]"
+    ],
+    "lyrics": [],
+    "id": "skittlez-backstory-full-detailed-record",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

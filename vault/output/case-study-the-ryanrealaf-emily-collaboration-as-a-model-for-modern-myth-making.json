@@ -1,0 +1,43 @@
+{
+    "title": "Case Study: The RyanrealAF & Emily Collaboration as a Model for Modern Myth\\-Making",
+    "tags": [],
+    "lyrics": [],
+    "id": "case-study-the-ryanrealaf-emily-collaboration-as-a-model-for-modern-myth-making",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

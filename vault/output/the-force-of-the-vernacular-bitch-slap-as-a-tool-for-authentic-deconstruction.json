@@ -1,0 +1,48 @@
+{
+    "title": "The Force of the Vernacular: \"Bitch Slap\" as a Tool for Authentic Deconstruction",
+    "tags": [
+        "1\\. The Sterile and the Visceral",
+        "2\\. Communicating Intent and Impact",
+        "3\\. The Authority of the Vernacular",
+        "4\\. Conclusion"
+    ],
+    "lyrics": [],
+    "id": "the-force-of-the-vernacular-bitch-slap-as-a-tool-for-authentic-deconstruction",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

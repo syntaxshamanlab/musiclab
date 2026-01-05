@@ -1,0 +1,43 @@
+{
+    "title": "\\[Minimalist beat, ambient and eerie\u2014like wind in ruins\\. Vocals sharp, deliberate, Shakespearean cadence with street grit\\. Every word lands like a spell or strike\\]",
+    "tags": [],
+    "lyrics": [],
+    "id": "minimalist-beat-ambient-and-eerie-like-wind-in-ruins-vocals-sharp-deliberate-shakespearean-cadence-with-street-grit-every-word-lands-like-a-spell-or-strike",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

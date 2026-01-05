@@ -1,0 +1,43 @@
+{
+    "title": "RyanrealAF\u2019s \u201cBeautifully Broken\u201d",
+    "tags": [],
+    "lyrics": [],
+    "id": "ryanrealafs-beautifully-broken",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

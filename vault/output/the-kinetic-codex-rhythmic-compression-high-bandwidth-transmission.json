@@ -1,0 +1,49 @@
+{
+    "title": "The Kinetic Codex: Rhythmic Compression & High\\-Bandwidth Transmission",
+    "tags": [
+        "1\\. The Information Engine: Anapestic Compression",
+        "2\\. The Data Packet: Affective Fidelity through Vernacular",
+        "3\\. Rhythmic Subversion as a \"Write\" Command",
+        "4\\. Implementation Protocol: \"The Rhythmic Myth Maker\"",
+        "5\\. Summary of Information Flow"
+    ],
+    "lyrics": [],
+    "id": "the-kinetic-codex-rhythmic-compression-high-bandwidth-transmission",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

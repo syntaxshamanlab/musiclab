@@ -1,0 +1,56 @@
+{
+    "title": "__Chapter 1: The Fundamentals of AI\\-Driven Songwriting with Suno__",
+    "tags": [
+        "__1\\.1 The Role of Meta Tags in AI\\-Assisted Composition__",
+        "__What are Meta Tags?__",
+        "__How are Meta Tags Used?__",
+        "__Why are Meta Tags Important?__",
+        "__1\\.2 The Art of Lyric and Prompt Structuring__",
+        "__What is Lyric Structuring?__",
+        "__How is it Used?__",
+        "__Why is it Important?__",
+        "__Chapter 2: Advanced Techniques and Refinement__",
+        "__2\\.1 Crafting Complex Musical Directions__",
+        "__2\\.2 Mastering Song Length with Extensions__",
+        "__2\\.3 The Use of Silence and Pacing__"
+    ],
+    "lyrics": [],
+    "id": "chapter-1-the-fundamentals-of-ai-driven-songwriting-with-suno",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

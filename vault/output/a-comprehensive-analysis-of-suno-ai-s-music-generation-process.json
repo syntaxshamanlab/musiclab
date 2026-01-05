@@ -1,0 +1,45 @@
+{
+    "title": "A Comprehensive Analysis of Suno AI's Music Generation Process",
+    "tags": [
+        "Works cited"
+    ],
+    "lyrics": [],
+    "id": "a-comprehensive-analysis-of-suno-ai-s-music-generation-process",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}

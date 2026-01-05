@@ -1,0 +1,48 @@
+{
+    "title": "\ud83d\udfe6 THE VAULT INGESTION PIPELINE \u2014 CODESPACE HANDOFF",
+    "tags": [
+        "\ud83d\udfe9 Directory Layout",
+        "\ud83d\udfe7 Devcontainer Setup",
+        "\ud83d\udfe5 The Ingestion Script \\(ingest\\.py\\)",
+        "\ud83d\udfe8 Schema and Config Files"
+    ],
+    "lyrics": [],
+    "id": "the-vault-ingestion-pipeline-codespace-handoff",
+    "bpm": 92,
+    "profile": "Processed Reality / Street-Born Fate",
+    "metrics": {
+        "density": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ],
+        "intensity": [
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50,
+            50
+        ]
+    },
+    "mix": {
+        "drums": 80,
+        "bass": 80,
+        "vocals": 100,
+        "fx": 50
+    },
+    "visuals": [
+        {
+            "time": "0:00",
+            "event": "Initialization",
+            "desc": "Default visual protocol engaged."
+        }
+    ]
+}
